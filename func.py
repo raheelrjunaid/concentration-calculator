@@ -1,9 +1,9 @@
 def convertUp(value):
-    value = value * 1000
+    value *= 1000
     return value
 
 def convertDown(value):
-    value = value / 1000
+    value /= 1000
     return value
 
 def replaceLetter(str, letter):
