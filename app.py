@@ -8,13 +8,13 @@ while True: # Validation
     mass = input("Input total mass of compound: ")
     if mass.lower().endswith("g"):
         if mass.lower()[-2:] == "mg":
-            mass = convertDown(float(replaceLetter(mass, "mg")))
+            mass = convertDown(float(deleteLetter(mass, "mg")))
             break
         elif mass.lower()[-2:] == "kg":
-            mass = convertUp(float(replaceLetter(mass, "kg")))
+            mass = convertUp(float(deleteLetter(mass, "kg")))
             break
         else:
-            mass = float(replaceLetter(mass, "g"))
+            mass = float(deleteLetter(mass, "g"))
             break
     else:
         print("Mass must be in g, mg or kg")
@@ -23,13 +23,13 @@ while True: # Validation
     volume = input("Input total volume of compound: ")
     if volume.lower().endswith("l"):
         if volume.lower()[-2:] == "ml":
-            volume = convertDown(float(replaceLetter(volume, "ml")))
+            volume = convertDown(float(deleteLetter(volume, "ml")))
             break
         elif volume.lower()[-2:] == "kl":
-            volume = convertUp(float(replaceLetter(volume, "kl")))
+            volume = convertUp(float(deleteLetter(volume, "kl")))
             break
         else:
-            volume = float(replaceLetter(volume, "l"))
+            volume = float(deleteLetter(volume, "l"))
             break
     else:
         print("Volume must be in l, ml or kl")
@@ -58,18 +58,19 @@ while True: # Validation
         print("Molar quantity has to be a number.")
 
 # Weight to Mass Conversions
-w_v = mass / convertUp(volume)
-w_v = format(w_v, ".2%")
+w_v = format(mass / convertUp(volume), ".2%")
 ppm = convertUp(mass) / volume
 
 # Molar Conversions
-mol = mass / molarMass
-mol_L = mol / volume
-firstElementConc = firstMolAmount * mol_L
-secondElementConc = secondMolAmount * mol_L
+# mol = mass / molarMass
+# mol_L = mol / volume
+# firstElementConc = firstMolAmount * mol_L
+# secondElementConc = secondMolAmount * mol_L
+
+mol, mol_L, firstElementConc, secondElementConc = molConvert(mass, volume, molarMass, firstMolAmount, secondMolAmount)
 
 # Appearance
-br = "\n| " + "-" * 35 + "\n| "
+br = br("-")
 
 # Return
 print(f"\nResults:{br}Percentage Concentration: {w_v}{br}Parts Per Million: {sciNotation(ppm)} ppm {br}Molar Concentration: {sciNotation(mol_L)} mol/L {br}Molar Concentration of {firstElement} [{firstElement}] = {sciNotation(firstElementConc)} mol/L {br}Molar Concentration of {secondElement} [{secondElement}] = {sciNotation(secondElementConc)} mol/L\n")
