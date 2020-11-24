@@ -1,0 +1,40 @@
+Concentration Conversion Factor
+------------------------------------
+5% == 5g / 500g (same units, it literally doesn't matter if it is Volume or Mass)
+
+%w/w == (mg / mg or g / g or kg / kg) * 100%
+  --> Finding Mass == C / 100 (Remove percentage with unit of w/w)
+  Ex. 12%v/v == 12g / 100g
+  Note: This could also be expressed in ppm if solvent is in kg or something.
+
+%w/v == (g / ml) * 100%
+  --> Finding Volume == C / 100 (Remove percentage with unit of w/v)
+  Ex. 12%v/v == 12g / 100mL
+
+%v/v == (mL / mL or L / L or kL / kL) * 100%
+  --> Finding Volume == C / 100 (Remove percentage with unit of v/v)
+  Ex. 12%v/v == 12L / 100L
+
+Formulas/Pathways
+------------------------------------
+ppm == mg / kg or mg / L
+  --> Finding Mass/Volume present in specific Mass/Volume == C * V/m
+      (Multiply by final volume or mass)
+
+Molarity == mol / L or M (short for mol/L)
+
+Volume/Mass present in specific Volume/Mass:
+  Find the initial Mass/Volume (look at concentration conversion factor)
+  Multiply by final Volume/Mass (look at correct units - g/ml not g/L)
+
+  Molarity
+  ------------------------------------
+  C == n / V
+  V == n / C
+  n == C * V
+
+Extra/Pre Calculations
+------------------------------------
+Molar Mass ==  m / n
+Moles == m / M
+Mass == n * m 
