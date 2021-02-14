@@ -1,27 +1,26 @@
-# Chemical Strategy List:
+# Welcome to Concentration-Calculator 👋
+![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
+[![Twitter: raheelrjunaid](https://img.shields.io/twitter/follow/raheelrjunaid.svg?style=social)](https://twitter.com/raheelrjunaid)
 
-## Concentration Conversion Factor
-5% == 5g / 500g (same units are required. It doesn't matter if it is Volume or Mass)
+> A chemical conversion calculator to find concentration of a compounds(s).
 
-### Finding %w/w
-Formulas: g / g * 100%
-- Finding Mass: C / 100 (Remove percentage with unit of w/w)
-    Ex. 12%w/w == 12g / 100g
+## Formulas
+[Formulas](formulas.md)
 
-### Finding %w/v
-Formulas: g / ml * 100%
-- Finding Volume: C / 100 (Remove percentage with unit of w/v)
-    Ex. 12%v/v == 12g / 100mL
-    
-### Finding %v/v
-Formulas: L / L * 100%
-- Finding Volume: C / 100 (Remove percentage with unit of v/v)
-    Ex. 12%v/v == 12L / 100L
----
-## Finding ppm
-Formulas: mg / kg or mg / L
-- Finding Mass/Volume present in specific Mass/Volume == C * V/m
-    (Multiply by final volume or mass)
+## Usage
 
-## Finding Molarity (mol/L)
-Formulas: C = n / V
+```sh
+python3 app.py
+```
+
+## Author
+
+👤 **Raheel Junaid**
+
+* Website: https://raheelrjunaid.github.io/
+* Twitter: [@raheelrjunaid](https://twitter.com/raheelrjunaid)
+* Github: [@raheelrjunaid](https://github.com/raheelrjunaid)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
