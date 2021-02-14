@@ -1,4 +1,4 @@
-# Welcome to Concentration-Calculator 👋
+# Welcome to the Concentration Calculator
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 [![Twitter: raheelrjunaid](https://img.shields.io/twitter/follow/raheelrjunaid.svg?style=social)](https://twitter.com/raheelrjunaid)
 
