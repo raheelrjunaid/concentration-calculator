@@ -4,7 +4,7 @@ from func import *
 # ppm = mg/kg or mg/L
 # M = mol/L
 
-while True: # Validation
+while True:
     mass = input("Input total mass of compound: ")
     if mass.lower().endswith("g"):
         if mass.lower()[-2:] == "mg":
@@ -19,7 +19,7 @@ while True: # Validation
     else:
         print("Mass must be in g, mg or kg")
 
-while True: # Validation
+while True:
     volume = input("Input total volume of compound: ")
     if volume.lower().endswith("l"):
         if volume.lower()[-2:] == "ml":
@@ -34,7 +34,7 @@ while True: # Validation
     else:
         print("Volume must be in l, ml or kl")
 
-while True: # Validation
+while True:
     try:
         molarMass = float(input("Input compound molar mass [g/mol]: "))
         break
@@ -42,15 +42,15 @@ while True: # Validation
         print("Molar Mass has to be only a number.")
 
 firstElement = input("Input first element in compound (no sub/superscript): ")
-while True: # Validation
+while True:
     try:
         firstMolAmount = int(input("Input first element molar quantity (2 for 2Pb): "))
         break
     except ValueError:
         print("Molar quantity has to be a number.")
-        
+
 secondElement = input("Input second element in compound (no sub/superscript): ")
-while True: # Validation
+while True:
     try:
         secondMolAmount = int(input("Input second element molar quantity (3 for 3Al): "))
         break
