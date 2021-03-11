@@ -1,21 +1,27 @@
 def convertUp(value):
-    value *= 1000
-    return value
+    return value * 1000
+
 
 def convertDown(value):
-    value /= 1000
-    return value
+    return value / 1000
 
-def deleteLetter(str, letter):
-    str = str.replace(letter, "")
-    return str
+
+def deleteLetter(string, letter):
+    modified_string = string.replace(letter, "")
+    return modified_string
+
 
 def sciNotation(number):
-    number = format(number, ".2e")
-    return number
+    return format(number, ".2e")
 
-def molConvert(mass, volume, molar, mol1, mol2):
-    return mass / molar, mass / molar / volume, mol1 * mass / molar / volume, mol2 * mass / molar / volume
+
+def molConvert(mass, volume, molar, firstMol, secondMol):
+    mol = mass / molar
+    mol_L = mol / volume
+    firstConcentration = firstMol * mol_L
+    secondConcentration = secondMol * mol_L
+    return mol, mol_L, firstConcentration, secondConcentration
+
 
 def br(char):
     return "\n| " + char * 35 + "\n| "
