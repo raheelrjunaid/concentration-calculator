@@ -1,73 +1,32 @@
-from func import *
+from func import convertUp, molConvert
+from func import br, sciNotation, promptUserUNIT, promptNum
 
 # %w/v = g/ml
 # ppm = mg/kg or mg/L
 # M = mol/L
 
-while True:
-    mass = input("Input total mass of compound: ")
-    if mass.lower().endswith("g"):
-        if mass.lower()[-2:] == "mg":
-            mass = convertDown(float(deleteLetter(mass, "mg")))
-            break
-        elif mass.lower()[-2:] == "kg":
-            mass = convertUp(float(deleteLetter(mass, "kg")))
-            break
-        else:
-            mass = float(deleteLetter(mass, "g"))
-            break
-    else:
-        print("Mass must be in g, mg or kg")
-
-while True:
-    volume = input("Input total volume of compound: ")
-    if volume.lower().endswith("l"):
-        if volume.lower()[-2:] == "ml":
-            volume = convertDown(float(deleteLetter(volume, "ml")))
-            break
-        elif volume.lower()[-2:] == "kl":
-            volume = convertUp(float(deleteLetter(volume, "kl")))
-            break
-        else:
-            volume = float(deleteLetter(volume, "l"))
-            break
-    else:
-        print("Volume must be in l, ml or kl")
-
-while True:
-    try:
-        molarMass = float(input("Input compound molar mass [g/mol]: "))
-        break
-    except ValueError:
-        print("Molar Mass has to be only a number.")
-
-firstElement = input("Input first element in compound (no sub/superscript): ")
-while True:
-    try:
-        firstMolAmount = int(input("Input first element molar quantity (2 for 2Pb): "))
-        break
-    except ValueError:
-        print("Molar quantity has to be a number.")
-
-secondElement = input("Input second element in compound (no sub/superscript): ")
-while True:
-    try:
-        secondMolAmount = int(input("Input second element molar quantity (3 for 3Al): "))
-        break
-    except ValueError:
-        print("Molar quantity has to be a number.")
+try:
+    mass = promptUserUNIT("mass", "g")
+    volume = promptUserUNIT("volume", "l")
+    molarMass = promptNum("molar mass", "g/mol")
+    # First Compound Info
+    firstElement = input("Input first element symbol in compound [Cl]: ")
+    firstMolAmount = promptNum("molar quantity", "1")
+    # Second Compound Info
+    secondElement = input("Input second element symbol in compound [Cl]: ")
+    secondMolAmount = promptNum("molar quantity", "1")
+except KeyboardInterrupt:
+    print('\nExited Program')
+    quit()
 
 # Weight to Mass Conversions
 w_v = format(mass / convertUp(volume), ".2%")
 ppm = convertUp(mass) / volume
-
-# Molar Conversions
-# mol = mass / molarMass
-# mol_L = mol / volume
-# firstElementConc = firstMolAmount * mol_L
-# secondElementConc = secondMolAmount * mol_L
-
-mol, mol_L, firstElementConc, secondElementConc = molConvert(mass, volume, molarMass, firstMolAmount, secondMolAmount)
+data = molConvert(mass, volume, molarMass, firstMolAmount, secondMolAmount)
+mol = data[0]
+mol_L = data[1]
+firstElementConc = data[2]
+secondElementConc = data[3]
 
 # Appearance
 br = br("-")
