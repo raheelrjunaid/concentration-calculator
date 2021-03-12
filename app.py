@@ -1,9 +1,8 @@
+from rich.console import Console
+from rich.table import Table
 from func import convertUp, molConvert
-from func import br, sciNotation, promptUserUNIT, promptNum
+from func import sciNotation, promptUserUNIT, promptNum
 
-# %w/v = g/ml
-# ppm = mg/kg or mg/L
-# M = mol/L
 
 try:
     mass = promptUserUNIT("mass", "g")
@@ -19,17 +18,32 @@ except KeyboardInterrupt:
     print('\nExited Program')
     quit()
 
-# Weight to Mass Conversions
-w_v = format(mass / convertUp(volume), ".2%")
+# %w/v = g/ml
+weight_volume_ratio = format(mass / convertUp(volume), ".2%")
+# ppm = mg/kg or mg/L
 ppm = convertUp(mass) / volume
 data = molConvert(mass, volume, molarMass, firstMolAmount, secondMolAmount)
+
+# Convert items to scientific notation for display purposes
+for item in data:
+    item = sciNotation(item)
+
 mol = data[0]
 mol_L = data[1]
 firstElementConc = data[2]
 secondElementConc = data[3]
 
-# Appearance
-br = br("-")
+# Generate columns
+table = Table(title="Calculations", show_lines=True)
+table.add_column("Title")
+table.add_column("Result", style="green")
+# Generate rows and fill with data + "units"
+table.add_row("Percentage Concentration", weight_volume_ratio)
+table.add_row("Parts Per Million", str(ppm) + " ppm")
+table.add_row("Concentration", str(mol_L) + " mol/L")
+table.add_row("Concentration of " + firstElement, str(firstElementConc) + " mol/L")
+table.add_row("Concentration of " + secondElement, str(secondElementConc) + " mol/L")
 
-# Return
-print(f"\nResults:{br}Percentage Concentration: {w_v}{br}Parts Per Million: {sciNotation(ppm)} ppm {br}Molar Concentration: {sciNotation(mol_L)} mol/L {br}Molar Concentration of {firstElement} [{firstElement}] = {sciNotation(firstElementConc)} mol/L {br}Molar Concentration of {secondElement} [{secondElement}] = {sciNotation(secondElementConc)} mol/L\n")
+# Print generated table
+console = Console()
+console.print(table)
