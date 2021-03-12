@@ -22,10 +22,6 @@ def molConvert(mass, volume, molar, firstMol, secondMol):
     return mol, mol_L, firstConcentration, secondConcentration
 
 
-def br(char):
-    return "\n| " + char * 35 + "\n| "
-
-
 def promptUserUNIT(data_type, unit_base):
     while True:
         mila_unit = "m" + unit_base
